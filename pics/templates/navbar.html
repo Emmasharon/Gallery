@@ -6,11 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Gallery</a>
+    <div type="button" class="navbar-toggle collapsed navbar-header" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" data-label-expanded="Close" aria-expanded="false">
+      <a class="" href="/">Home</a>
     </div>
+
+    <div class="dropdown">
+      <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="/">Categories</a>
+      </div>
+      {% for category in categories %}
+        <div class="dropdown-menu">
+            <p><a class="dropdown-item" href="/category/{{category.id}}">{{category.image_category}}</a></p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="dropdown">
+        <div lass="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a href="/">Locations</a>
+        </div>
+      {% for location in locations%}
+        <div class="dropdown-menu">
+            <p><a class="dropdown-item" href="/location/{{location.id}}">{{location.image_location}}</a></p>
+        </div>
+      {% endfor %}
+
+    </div>
+    <!-- <div class="">
+      <a class="" href="/"></a>
+    </div> -->
   </div>
 </nav>
 </body>

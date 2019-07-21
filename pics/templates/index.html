@@ -4,17 +4,11 @@
 {% block content %}
 <h1 class="text-center">My Gallery</h1>
 
-{% for location in locations%}
-<p><a href="/location/{{location.id}}">{{location.image_location}}</a></p>
-{% endfor %}
-{% for category in categories %}
-<p><a href="/category/{{category.id}}">{{category.image_category}}</a></p>
-{% endfor %}
 {% for image in images %}
 <div class="column">
-    <div class="col-lg-2" > 
+    <div class="col-md-3" > 
             <a href="/image/{{image.category}}/{{photo.id}}">
-                <img style="width: 200px; height: 200px;" class="card-img-top" src="{{image.image.url}}" alt="df"></a>
+                <img style="width: 300px; height: 300px;" class="card-img-top" src="{{image.image.url}}" alt="df"></a>
             <p>{{image.description}}</p>
         </div>
 </div>
