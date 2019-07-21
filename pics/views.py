@@ -7,5 +7,7 @@ import datetime as dt
 def index(request):
     images = Image.get_all_images()
     locations = Location.get_locations()
-    category = Category.get_all_categories()
+    categories = Category.get_all_categories()
     return render(request,'index.html',{'images':images, 'categories':categories, 'locations':locations})
+
+

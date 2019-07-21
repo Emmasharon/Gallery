@@ -43,7 +43,7 @@ class Image(models.Model):
     '''
     Class for functions that affect the image 
     '''
-    photo = models.ImageField(upload_to = 'image/')
+    image = models.ImageField(upload_to = 'image/')
     name = models.CharField(max_length = 40)
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
@@ -66,17 +66,17 @@ class Image(models.Model):
         
     @classmethod
     def get_image_by_id(cls,id):
-        image = Image.objects.get(id=id)
+        single_image = Image.objects.get(id=id)
         return image
     
     @classmethod
     def search_image(cls,search_category):
-        image = Image.objects.filter(search_category=search_category)
+        image_category = Image.objects.filter(search_category=search_category)
         return images_category
     
     @classmethod
     def filter_by_location(cls,filter_location):
-        image = Image.object.filter(location_id=location_id)
+        image_location = Image.object.filter(location_id=location_id)
         return location_id
         
     def __str__(self):
