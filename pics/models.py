@@ -48,6 +48,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
     date = models.DateTimeField(auto_now_add=True)
+    description = models.CharField(max_length = 60,blank =True)
     
     def save_image(self):
         self.save()
@@ -57,6 +58,11 @@ class Image(models.Model):
         
     def update_image(self):
         self.update_image()
+        
+    @classmethod
+    def get_all_images(cls):
+        all_images = Image.objects.all()
+        return all_images
         
     @classmethod
     def get_image_by_id(cls,id):
