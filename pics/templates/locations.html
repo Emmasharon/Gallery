@@ -3,10 +3,10 @@
 {{block.super}}
 
 <div>
-    <p>hfgyh</p>
  {% for  image in images%}
-  <img src="{{image.location.url}}" alt="">
-  <p><a href="{{image.id}}">{{image.name}}</a></p>
+  <img src="{{image.image.url}}" alt="">
+  <p>Name:{{image.name}}</p>
+  <p>Caption:{{image.description}}</p>
  {% endfor %}
 </div>
 
