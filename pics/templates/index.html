@@ -23,16 +23,50 @@
         {% endfor %}
         </div> 
         {% for image in images %}
-<div class="column">
-    <div class="col-md-6" > 
-            <a href="/image/{{image.category}}/{{photo.id}}">
-                <img style="width: 300px; height: 300px;" class="card-img-top" src="{{image.image.url}}" alt="image"></a>
-            <p>{{image.description}}</p>
-        </div>
-        <hr>
-    {% empty %}
-<h3>Oops! No images under this</h3>
+          <div class="column">
+              <div class="col-md-6" > 
+                      <img style="width: 300px; height: 300px;" class="card-img-top" src="{{image.image.url}}" alt="image" data-toggle="modal" data-target="#{{image.id}}">
+                  </div>
+                  
 
-</div>
+                  <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header text-center">
+                              <h3 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h3>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="text-center">
+                                  <img src='{{image.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+                              </div>
+                              <div class="text-center">
+                                  <blockquote class="blockquote text-center">
+                                      <p class="mb-0">{{image.description}}</p>
+                                      <footer class="blockquote-footer">Location:{{image.location}} </footer>
+                                  </blockquote>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <div class="form-group row">
+                                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">
+                                      <input id="{{image.id}}-url"  class="form-control input-md responsive" type="text" value="{{image.image.url}}">
+                                  </div>
+                                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 padding-2">
+                                      <button class="btn btn-secondary" onclick="copyToClipboard('#{{image.id}}-url')">Copy</button>
+                                  </div>
+                              </div>
+                              <div class="text-center">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  <hr>
+              {% empty %}
+          <h3>Oops! No images under this</h3>
+          </div>
 {% endfor%}
 {% endblock%}
