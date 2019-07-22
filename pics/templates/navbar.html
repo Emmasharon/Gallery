@@ -8,36 +8,20 @@
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div type="button" class="navbar-toggle collapsed navbar-header" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" data-label-expanded="Close" aria-expanded="false">
       <a class="" href="/">Home</a>
-    </div>
-
-    <div class="dropdown">
-      <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <a href="/">Categories</a>
-      </div>
-      {% for category in categories %}
-        <div class="dropdown-menu">
-            <p><a class="dropdown-item" href="/category/{{category.id}}">{{category.image_category}}</a></p>
-        </div>
-      {% endfor %}
-    </div>
-
-    <div class="dropdown">
-        <div lass="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <a href="/">Locations</a>
-        </div>
-      {% for location in locations%}
-        <div class="dropdown-menu">
-            <p><a class="dropdown-item" href="/location/{{location.id}}">{{location.image_location}}</a></p>
-        </div>
-      {% endfor %}
-
-    </div>
-    <!-- <div class="">
-      <a class="" href="/"></a>
-    </div> -->
+      <a class="" href="pictures.html">Gallery</a>
   </div>
+  <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Category" name="article">
+        <div class="input-group-btn">
+          <button class="btn btn-warning" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+
+    </form>
+
 </nav>
 </body>
 </html>

@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
-<h1 class="text-center">My Gallery</h1>
-
-{% for image in images %}
-<div class="column">
-    <div class="col-md-3" > 
-            <a href="/image/{{image.category}}/{{photo.id}}">
-                <img style="width: 300px; height: 300px;" class="card-img-top" src="{{image.image.url}}" alt="df"></a>
-            <p>{{image.description}}</p>
+{{block.super}}
+<div class="col-md-6 text-center ">
+        <div >
+             <h3>categories</h3>
         </div>
-</div>
-{% endfor %}
-{% endblock %}
+        {% for category in categories %}
+          <div class="">
+              <p><a  href="/category/{{category.id}}">{{category.image_category}}</a></p>
+          </div>
+        {% endfor %}
+      </div>
+  
+      <div class="col-md-6 text-center">
+          <div >
+             <h3>locations</h3>
+          </div>
+        {% for location in locations%}
+          <div >
+              <p><a href="/location/{{location.id}}">{{location.image_location}}</a></p>
+          </div>
+        {% endfor %}
+{% endblock%}
