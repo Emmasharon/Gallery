@@ -10,11 +10,6 @@ def index(request):
     categories = Category.get_all_categories()
     return render(request,'index.html',{'images':images, 'categories':categories, 'locations':locations})
 
-def pictures(request):
-    images = Image.get_all_images()
-    locations = Location.get_locations()
-    categories = Category.get_all_categories()
-    return render(request,'pictures.html',{'images':images, 'categories':categories, 'locations':locations})
 
 def search_results(request):
     if 'category' in request.GET and request.GET['category']:

@@ -21,4 +21,18 @@
               <p><a href="/location/{{location.id}}">{{location.image_location}}</a></p>
           </div>
         {% endfor %}
+        </div> 
+        {% for image in images %}
+<div class="column">
+    <div class="col-md-6" > 
+            <a href="/image/{{image.category}}/{{photo.id}}">
+                <img style="width: 300px; height: 300px;" class="card-img-top" src="{{image.image.url}}" alt="image"></a>
+            <p>{{image.description}}</p>
+        </div>
+        <hr>
+    {% empty %}
+<h3>Oops! No images under this</h3>
+
+</div>
+{% endfor%}
 {% endblock%}
